@@ -29,3 +29,7 @@ print(nadezhdivka.is_village())
 print(bilozerska_otg.get_population())
 
 print(kherson_region.get_population())
+
+print(kakhovskyi_district.get_localities_count_by_type("village"))
+
+print(kherson_region.get_localities_count_by_type("village"))

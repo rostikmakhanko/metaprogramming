@@ -45,6 +45,10 @@ class AdministrativeDivision(abc.ABC):
     @abc.abstractmethod
     def get_population(self):
         return
+
+    @abc.abstractmethod
+    def get_localities_count_by_type(self, locality_type):
+        return
         
 
 class TerritorialCommunity(AdministrativeDivision):
@@ -57,6 +61,13 @@ class TerritorialCommunity(AdministrativeDivision):
             population += locality.population
         return population
 
+    def get_localities_count_by_type(self, locality_type):
+        localities_count = 0
+        for locality in self.units:
+            if (locality.locality_type == locality_type):
+                localities_count += 1
+        return localities_count
+
 class District(AdministrativeDivision):
     def __init__(self, name, localities=[]):
         AdministrativeDivision.__init__(self, name, "district", localities)
@@ -67,6 +78,13 @@ class District(AdministrativeDivision):
             population += locality.population
         return population
 
+    def get_localities_count_by_type(self, locality_type):
+        localities_count = 0
+        for locality in self.units:
+            if (locality.locality_type == locality_type):
+                localities_count += 1
+        return localities_count
+
 class Region(AdministrativeDivision):
     def __init__(self, name, districts=[]):
         AdministrativeDivision.__init__(self, name, "region", districts)
@@ -76,6 +94,12 @@ class Region(AdministrativeDivision):
         for district in self.units:
             population += district.get_population()
         return population
+    
+    def get_localities_count_by_type(self, locality_type):
+        localities_count = 0
+        for districts in self.units:
+            localities_count += districts.get_localities_count_by_type(locality_type)
+        return localities_count
 
 class Country(AdministrativeDivision):
     def __init__(self, name, regions=[]):
@@ -86,3 +110,9 @@ class Country(AdministrativeDivision):
         for region in self.units:
             population += region.get_population()
         return population
+
+    def get_localities_count_by_type(self, locality_type):
+        localities_count = 0
+        for region in self.units:
+            localities_count += region.get_localities_count_by_type(locality_type)
+        return localities_count
