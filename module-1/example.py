@@ -1,5 +1,11 @@
 import country_units as cu
 
-x = cu.Village("Nadezhdivka", 1200)
+nadezhdivka = cu.Village("Nadezhdivka", 1000)
+bilozerka = cu.Town("Bilozerka", 5321)
+tomyna_balka = cu.Village("Tomyna Balka", 1675)
 
-print(x)
+chornobayivka = cu.Village("Chornobayivka", 4343)
+
+bilozerska_otg = cu.TerritorialCommunity("Bilozerka Territory Community", [nadezhdivka, bilozerka, tomyna_balka])
+
+khersonskyi_district = cu.District("Kherson District", [nadezhdivka, bilozerka, tomyna_balka, chornobayivka])
