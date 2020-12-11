@@ -20,7 +20,7 @@ kakhovska_otg = cu.TerritorialCommunity("Kakhovka Territory Community", [kakhovk
 
 kakhovskyi_district = cu.District("Kakhovka District", [kakhovka, vilna_ukraina, rozdolne])
 
-kherson_region = cu.Region("kherson Region", [khersonskyi_district, kakhovskyi_district])
+kherson_region = cu.Region("Kherson Region", [khersonskyi_district, kakhovskyi_district])
 
 print(bilozerka.get_locality_type())
 
