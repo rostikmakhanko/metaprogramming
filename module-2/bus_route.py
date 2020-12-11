@@ -47,7 +47,7 @@ class BusRoute(abc.ABC):
         self.stops_count = stops_count
     
     def set_ticket_price(self, ticket_price):
-        self.ticket_price =- ticket_price
+        self.ticket_price = ticket_price
 
     def delete_attribute(self, attribute_name):
         delattr(self, attribute_name)
