@@ -1,12 +1,23 @@
 import abc
 
 class BusRoute(abc.ABC):
+    def creation_logger(func): 
+        def logger(*args, **kwargs): 
+            new_bus_route = func(*args, **kwargs) 
+            file = open("logs.txt", "a+") 
+            file.write("Created new instance of BusRoute" + str(new_bus_route) + "\n")
+            file.close()
+            print("Created", new_bus_route) 
+        return logger 
+
+    @creation_logger
     def __init__(self, name, capacity, trip_duration, stops_count, ticket_price):
         self.name = name
         self.capacity = capacity
         self.trip_duration = trip_duration
         self.stops_count = stops_count
         self.ticket_price = ticket_price
+        return self
 
     def get_name(self):
         return self.name
@@ -45,3 +56,4 @@ class BusRoute(abc.ABC):
         return "Bus route %s has %d capacity. Duration is %d minutes. There are %d stops. The ticket price is %d" % (self.name, self.capacity, self.trip_duration, self.stops_count, self.ticket_price)
 
 kyiv_kherson = BusRoute('Kyiv - Kherson', 500, 800, 10, 200)
+kyiv_kherson.creation_logger()

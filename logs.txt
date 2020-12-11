@@ -1,0 +1,5 @@
+Created new instance of BusRoute 
+Created new instance of BusRoute 
+Created new instance of BusRoute 
+Created new instance of BusRouteBus route Kyiv - Kherson has 500 capacity. Duration is 800 minutes. There are 10 stops. The ticket price is 200
+Created new instance of BusRouteBus route Kyiv - Kherson has 500 capacity. Duration is 800 minutes. There are 10 stops. The ticket price is 200
